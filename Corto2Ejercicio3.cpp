@@ -1,39 +1,34 @@
 #include <iostream>
 #include <string>
-
 using namespace std;
+int bisiesto(int fecha){
 
+    int m, n, x;
+   //A las siguientes 2 variables (m, n) se les asigna el residuo de la división entera del año ingresado entre 400, 4 y 100.
+    m = fecha % 400;
+    n = fecha % 4 && fecha % 100 != 0;
+    x = (m == n);//A esta variable se le asigna el resultado de comparar las dos variables anteriores, verificando si son iguales.
+
+    return n;
+}
 int main(){
 
-    int morado = 150 , celeste = 77 , blanco = 720 , rosado = 100 , negro = 80;
-    string opcion;
+    int year, dato;
 
-    cout<<"LOTERIA DE COLORES"<<endl;
-    cout<<"A continuacion se le presentaran 5 colores, por lo cual se le pide que escoja uno"<<endl;
-    cout<<"Morado"<<endl;
-    cout<<"Celeste"<<endl;
-    cout<<"Blanco"<<endl;
-    cout<<"Rosado"<<endl;
-    cout<<"Negro"<<endl;
-    cout<<"Ingrese el color que desea: "<<endl;
-    cin>> opcion;
+    cout<<"YEAR BISIESTO "<<endl;
+    cout<<"Para poder determinar si un es bisiesto o no, por favor ingrese el año "<<endl;
+    cin>>year;
+    cout<<endl;
+    //A la variable dato se le asigna el resultado que retorna la función bisiesto.
+    dato = bisiesto(year);
 
-    if (opcion == "Morado")
+    //Si el valor asignado a dato es 0, será bisiesto, pero si es uno, significa que no lo es.
+    if (dato == 0)
     {
-        cout<<"Usted ha ganado "<<morado<<" dolares"<<endl;
-    }else if (opcion == "Celeste")
-    {
-        cout<<"Usted ha ganado "<<celeste<<" dolares"<<endl;
-    }else if (opcion == "Blanco")
-    {
-        cout<<"Usted ha ganado "<<blanco<<" dolares"<<endl;
-    }else if (opcion == "Rosado")
-    {
-        cout<<"Usted ha ganado "<<rosado<<" dolares"<<endl;
+        cout<<"Es bisiesto "<<endl;
     }else
     {
-        cout<<"Usted ha ganado "<<negro<<" dolares"<<endl;
+        cout<<"No es bisiesto "<<endl;
     }
-    
     return 0;
 }
